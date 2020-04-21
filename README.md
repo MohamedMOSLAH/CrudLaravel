@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-<h1 align="center">Steps : <h1>
+<h1 align="center">Steps </h1>
 
 1 - git clone git@github.com:devamine1991/v1.0.0.git <br>
 2- Configure .env file <br>
