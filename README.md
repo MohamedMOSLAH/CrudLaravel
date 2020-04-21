@@ -7,9 +7,11 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-1 - git clone git@github.com:devamine1991/v1.0.0.git 
-2- Configure .env file 
-3- composer install 
-4- php artisan migrate 
-5- php artisan serve
-6- Open http://localhost:8000/products/
+<h1 align="center">Steps : <h1>
+
+1 - git clone git@github.com:devamine1991/v1.0.0.git <br>
+2- Configure .env file <br>
+3- composer install <br>
+4- php artisan migrate <br>
+5- php artisan serve   <br>
+6- Open http://localhost:8000/products/ <br>
