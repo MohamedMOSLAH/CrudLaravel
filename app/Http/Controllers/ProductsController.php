@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Mark;
 use App\Picture;
+use Illuminate\Http\UploadedFile;
 
 
 class ProductsController extends Controller
@@ -51,7 +52,6 @@ class ProductsController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
-        Picture::where('product_id','=',$product->id)->delete();
         return redirect('products');
     }
 
@@ -62,19 +62,16 @@ class ProductsController extends Controller
             $allowedfileExtension=['jpg','png','jpeg','webp'];
             $files = $request->file('photos');
             foreach($files as $file){
-                $filename = $file->getClientOriginalName();
+                //$filename = $file->getClientOriginalName();
                 $extension = $file->getClientOriginalExtension();
                 $check=in_array($extension,$allowedfileExtension);
                 if($check)
-                {         
-                    foreach ($request->photos as $photo) {
-                        $imageName = time().rand().'.'.$extension;  
-
-                        Picture::create([
-                            'name' => $photo->move('photos',$imageName),
-                            'product_id' => $product->id
-                        ]);
-                    }
+                {  
+                    $imageName = time().rand().'.'.$extension;  
+                    Picture::create([
+                        'name' => $file->move('photos',$imageName),
+                        'product_id' => $product->id
+                    ]);
                 } 
             }
         }  
@@ -89,6 +86,7 @@ class ProductsController extends Controller
             'description' => 'required|min:5',
             'price' => 'required',
             'mark_id' => 'required',
+            'price' => 'required|numeric|min:0'
         ]);
     }
 

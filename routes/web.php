@@ -33,11 +33,12 @@ Route::get('products/', function () {
    /*
  for($i=1;$i<20;$i++){
         $product = new App\Mark();
-        $product->name = 'Mark : '.$i;
+        $product->name = 'Mark '.$i;
      
         
         $product->save();
     }*/
 Auth::routes();
 
+Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'HomeController@index')->name('home');
